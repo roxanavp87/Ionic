@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { PhotoService } from '../_services';
 
@@ -8,9 +8,13 @@ import { PhotoService } from '../_services';
   templateUrl: 'about.page.html',
   styleUrls: ['about.page.scss']
 })
-export class AboutPage {
+export class AboutPage implements OnInit {
   currentImage: any;
   constructor(public navCtrl: NavController, public photoService: PhotoService) {
+  }
+
+  ngOnInit() {
+    this.photoService.loadSaved();
   }
 
   
